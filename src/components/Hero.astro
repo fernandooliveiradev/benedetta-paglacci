@@ -1,0 +1,38 @@
+---
+import { sizes } from "../data/menu.js";
+---
+
+<section id="inicio" class="hero-section">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Delivery: Trindade/GO</span>
+      <h1>Benedetta Paglacci</h1>
+      <p class="hero-copy__lead">Dois tamanhos e uma experiência única em cada pedaço</p>
+      <p class="hero-copy__support">Leve, artesanal, feito com trigo italiano.</p>
+
+      <div class="hero-actions">
+        <a href="#cardapio" class="primary-button">Ver cardápio</a>
+        <button type="button" class="secondary-button" data-open-cart>Finalizar pedido</button>
+      </div>
+
+      <div id="tamanhos" class="size-list">
+        {sizes.map((size) => (
+          <div class="size-card">
+            <span>{size.detail.replace(" cm", "")}</span>
+            <div>
+              <strong>{size.label}</strong>
+              <small>{size.detail}</small>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="logo-stage" aria-label="Benedetta Paglacci Pizza Artesanal">
+      <div class="logo-stage__ring" aria-hidden="true"></div>
+      <img src="/images/logo.png" alt="Benedetta Paglacci Pizza Artesanal" width="520" height="520" />
+      <span class="floating-label floating-label--top">Trigo italiano</span>
+      <span class="floating-label floating-label--bottom">15 opções</span>
+    </div>
+  </div>
+</section>

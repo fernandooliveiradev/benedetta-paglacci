@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+.playwright-cli/
+output/
+
+/cardapio.png
+*.log
+.env
+.env.*
+!.env.example

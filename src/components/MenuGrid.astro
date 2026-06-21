@@ -1,0 +1,70 @@
+---
+import { categories, sizes } from "../data/menu.js";
+
+const { pizzas } = Astro.props;
+
+const categoryId = (category) => category === "Pizzas doces" ? "doces" : "salgadas";
+const formatPrice = (price) => `R$ ${price}`;
+---
+
+<section id="cardapio" class="menu-section" aria-labelledby="menu-title">
+  <div class="section-heading">
+    <span class="eyebrow">{pizzas.length} opções</span>
+    <h2 id="menu-title">Cardápio</h2>
+    <p>Pizzas salgadas e pizzas doces.</p>
+  </div>
+
+  <div class="menu-controls">
+    <label class="search-box">
+      <span class="sr-only">Buscar pizza</span>
+      <svg aria-hidden="true" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path stroke-linecap="round" d="m20 20-3.2-3.2"></path>
+      </svg>
+      <input id="searchInput" type="search" placeholder="Buscar sabor..." autocomplete="off" />
+    </label>
+
+    <div class="category-tabs" role="tablist" aria-label="Categorias do cardápio">
+      {categories.map((category, index) => (
+        <button type="button" class:list={["category-tab", { active: index === 0 }]} data-category={category.id}>
+          {category.label}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div id="menuGrid" class="pizza-grid" aria-live="polite">
+    {pizzas.map((pizza) => (
+      <article
+        class="pizza-card"
+        data-pizza-card
+        data-category={categoryId(pizza.category)}
+        data-search={`${pizza.name} ${pizza.description}`.toLowerCase()}
+      >
+        <div class="pizza-card__top">
+          <span class="pizza-index">{String(pizza.number).padStart(2, "0")}</span>
+          <span class:list={["pizza-category", categoryId(pizza.category)]}>{categoryId(pizza.category) === "doces" ? "Pizza doce" : "Pizza salgada"}</span>
+        </div>
+        <h3>{pizza.name}</h3>
+        <p>{pizza.description}</p>
+        <div class="size-actions">
+          {sizes.map((size, index) => (
+            <button
+              type="button"
+              class:list={["add-size-button", { orange: index === 1 }]}
+              data-add-pizza={pizza.id}
+              data-size={size.id}
+            >
+              <span class="add-size-button__label">
+                {size.label} <small>{size.detail}</small>
+              </span>
+              <strong>{formatPrice(pizza.prices[size.id])}</strong>
+            </button>
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <p id="emptyMenu" class="empty-menu" hidden>Nenhum sabor encontrado.</p>
+</section>

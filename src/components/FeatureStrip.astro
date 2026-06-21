@@ -1,0 +1,21 @@
+---
+const items = [
+  { number: "01", title: "Tamanhos disponíveis", text: "Individual (25 cm) e Grande (33 cm)" },
+  { number: "02", title: "Telefone", text: "62 9109-8611" },
+  { number: "03", title: "Delivery", text: "Trindade/GO" },
+];
+---
+
+<section class="feature-strip" aria-label="Informações do cardápio">
+  <div class="feature-strip__inner">
+    {items.map((item) => (
+      <div class="feature-item">
+        <span>{item.number}</span>
+        <div>
+          <strong>{item.title}</strong>
+          <small>{item.text}</small>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

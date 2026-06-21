@@ -1,0 +1,108 @@
+<section id="pedido" class="order-band" aria-labelledby="pedido-title">
+  <div class="order-band__inner">
+    <div>
+      <span>Pedido</span>
+      <h2 id="pedido-title">Finalize pelo WhatsApp.</h2>
+      <p>Telefone: 62 9109-8611 · Delivery: Trindade/GO</p>
+    </div>
+    <button type="button" class="order-band__button" data-open-cart>
+      Abrir carrinho <strong data-cart-count>0</strong>
+    </button>
+  </div>
+</section>
+
+<div id="cartOverlay" class="cart-overlay" hidden></div>
+
+<aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-labelledby="cartTitle">
+  <div class="cart-drawer__header">
+    <div>
+      <span>Seu pedido</span>
+      <h2 id="cartTitle">Carrinho</h2>
+    </div>
+    <button id="closeCartButton" type="button" class="icon-button" aria-label="Fechar carrinho">
+      <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path stroke-linecap="round" d="m6 6 12 12M18 6 6 18"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="cart-drawer__body">
+    <div id="cartItems" class="cart-items"></div>
+    <div id="emptyCart" class="empty-cart">
+      <h3>Carrinho vazio</h3>
+      <p>Escolha uma pizza e adicione um tamanho.</p>
+    </div>
+
+    <form id="checkoutForm" class="checkout-form" novalidate>
+      <div>
+        <h3>Dados para entrega</h3>
+        <p>Delivery: Trindade/GO</p>
+      </div>
+
+      <div class="form-grid">
+        <label class="form-field form-field--wide">
+          <span>Nome *</span>
+          <input id="customerName" name="customerName" required autocomplete="name" />
+        </label>
+        <label class="form-field">
+          <span>WhatsApp *</span>
+          <input id="customerPhone" name="customerPhone" required inputmode="tel" autocomplete="tel" />
+        </label>
+        <label class="form-field">
+          <span>CEP *</span>
+          <input id="cep" name="cep" required inputmode="numeric" autocomplete="postal-code" maxlength="9" />
+        </label>
+        <label class="form-field form-field--wide">
+          <span>Endereço *</span>
+          <input id="street" name="street" required autocomplete="address-line1" />
+        </label>
+        <label class="form-field">
+          <span>Número *</span>
+          <input id="number" name="number" required autocomplete="address-line2" />
+        </label>
+        <label class="form-field">
+          <span>Bairro *</span>
+          <input id="neighborhood" name="neighborhood" required />
+        </label>
+        <label class="form-field">
+          <span>Complemento</span>
+          <input id="complement" name="complement" autocomplete="address-line3" />
+        </label>
+        <label class="form-field">
+          <span>Cidade *</span>
+          <input id="city" name="city" required value="Trindade" />
+        </label>
+        <label class="form-field">
+          <span>UF *</span>
+          <input id="state" name="state" required value="GO" maxlength="2" />
+        </label>
+        <label class="form-field form-field--wide">
+          <span>Pagar na Entrega *</span>
+          <select id="payment" name="payment" required>
+            <option value="Pix">Pix</option>
+            <option value="Cartão de Crédito">Cartão de Crédito</option>
+            <option value="Cartão de débito">Cartão de débito</option>
+          </select>
+        </label>
+      </div>
+      <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <div class="cart-drawer__footer">
+    <div>
+      <span>Itens no pedido</span>
+      <strong id="cartItemSummary">0 pizzas</strong>
+    </div>
+    <button id="checkoutButton" type="button" class="checkout-button" disabled>
+      Finalizar pelo WhatsApp
+    </button>
+  </div>
+</aside>
+
+<button id="mobileCartButton" type="button" class="mobile-cart-button" data-open-cart aria-label="Abrir carrinho">
+  <span>Ver carrinho</span>
+  <strong data-cart-count>0</strong>
+</button>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>

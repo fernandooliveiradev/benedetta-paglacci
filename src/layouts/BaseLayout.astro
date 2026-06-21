@@ -1,0 +1,51 @@
+---
+import "../styles/tailwind.generated.css";
+
+const {
+  title = "Benedetta Paglacci | Pizza artesanal em Trindade/GO",
+  description = "Benedetta Paglacci: pizza artesanal, leve, feita com trigo italiano. Delivery em Trindade/GO.",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const imageUrl = new URL("/images/logo.png", Astro.site).toString();
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: "Benedetta Paglacci",
+  servesCuisine: "Pizza artesanal",
+  telephone: "+55 62 9109-8611",
+  areaServed: "Trindade/GO",
+  url: canonical,
+  image: imageUrl,
+};
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

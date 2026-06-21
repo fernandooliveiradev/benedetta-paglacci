@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CartDrawer from "../components/CartDrawer.astro";
+import FeatureStrip from "../components/FeatureStrip.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import MenuGrid from "../components/MenuGrid.astro";
+import { pizzas, sizes } from "../data/menu.js";
+---
+
+<BaseLayout>
+  <Header />
+  <main>
+    <Hero />
+    <FeatureStrip />
+    <MenuGrid pizzas={pizzas} />
+    <CartDrawer />
+  </main>
+  <Footer />
+  <script type="application/json" id="menu-data" set:html={JSON.stringify({ pizzas, sizes })}></script>
+  <script src="/scripts/order.js" defer></script>
+</BaseLayout>
