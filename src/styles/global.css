@@ -626,9 +626,10 @@ a {
   min-height: 4rem;
   align-items: center;
   justify-content: space-between;
-  gap: 0.45rem;
+  gap: 0.8rem;
   border: 1px solid rgba(6, 76, 54, 0.14);
   border-radius: 1rem;
+  padding: 0.7rem 0.75rem 0.7rem 0.85rem;
   background: var(--cream);
   color: var(--green);
   font-size: 0.74rem;
@@ -658,6 +659,19 @@ a {
   white-space: nowrap;
 }
 
+.add-size-button .price-badge {
+  display: inline-flex;
+  min-width: 3.75rem;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.22rem;
+  border-radius: 0.72rem;
+  padding: 0.42rem 0.55rem;
+  background: rgba(233, 77, 23, 0.1);
+  line-height: 1;
+  margin-left: auto;
+}
+
 .add-size-button:hover {
   border-color: var(--green);
   background: var(--green);
@@ -665,7 +679,8 @@ a {
   transform: translateY(-1px);
 }
 
-.add-size-button:hover strong {
+.add-size-button:hover .price-badge {
+  background: rgba(255, 255, 255, 0.16);
   color: white;
 }
 

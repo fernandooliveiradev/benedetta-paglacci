@@ -4,7 +4,7 @@ import { categories, sizes } from "../data/menu.js";
 const { pizzas } = Astro.props;
 
 const categoryId = (category) => category === "Pizzas doces" ? "doces" : "salgadas";
-const formatPrice = (price) => `R$ ${price}`;
+const formatPrice = (price) => String(price);
 ---
 
 <section id="cardapio" class="menu-section" aria-labelledby="menu-title">
@@ -58,7 +58,10 @@ const formatPrice = (price) => `R$ ${price}`;
               <span class="add-size-button__label">
                 {size.label} <small>{size.detail}</small>
               </span>
-              <strong>{formatPrice(pizza.prices[size.id])}</strong>
+              <strong class="price-badge" aria-label={`R$ ${pizza.prices[size.id]}`}>
+                <span>R$</span>
+                <span>{formatPrice(pizza.prices[size.id])}</span>
+              </strong>
             </button>
           ))}
         </div>
