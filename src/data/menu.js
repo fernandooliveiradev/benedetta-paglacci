@@ -25,7 +25,7 @@ export const pizzas = [
     category: "Pizzas salgadas",
     name: "Margherita Speciale",
     description:
-      "Molho italiano, mussarela de búfala, tomate seco, e finalizada com pesto de azeitona preta.",
+      "Molho italiano, mussarelo de búfala, tomate seco, e finalizada com pesto de azeitona preta.",
     prices: { individual: 45, grande: 65 },
   },
   {
@@ -57,7 +57,7 @@ export const pizzas = [
     id: "lombo-canadense",
     number: 6,
     category: "Pizzas salgadas",
-    name: "Lombo canadense",
+    name: "Lombo Canadense",
     description:
       "Molho italiano, mussarela, lombo canadense e Cream Cheese (opção de finalização com mel).",
     prices: { individual: 39, grande: 59 },
@@ -66,7 +66,7 @@ export const pizzas = [
     id: "cinco-formaggi",
     number: 7,
     category: "Pizzas salgadas",
-    name: "Cinco formaggi",
+    name: "Cinco Formaggi",
     description:
       "Molho italiano, manjericão, mussarela, provolone, queijo coalho, gorgonzola e catupiry.",
     prices: { individual: 42, grande: 63 },
@@ -75,7 +75,7 @@ export const pizzas = [
     id: "quatro-formaggi",
     number: 8,
     category: "Pizzas salgadas",
-    name: "Quatro formaggi",
+    name: "Quatro Formaggi",
     description: "Molho italiano, mussarela, provolone, catupiry e gorgonzola.",
     prices: { individual: 41, grande: 62 },
   },
@@ -83,7 +83,7 @@ export const pizzas = [
     id: "bianca-quatro-formaggi",
     number: 9,
     category: "Pizzas salgadas",
-    name: "Bianca quatro formaggi",
+    name: "Bianca Quatro Formaggi",
     description:
       "Queijo mussarela, queijo coalho, provolone, gorgonzola e finalizada com mel.",
     prices: { individual: 40, grande: 60 },
