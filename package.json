@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "build:css": "tailwindcss -i ./src/styles/global.css -o ./src/styles/tailwind.generated.css --minify",
-    "dev": "npm run build:css && astro dev",
+    "dev": "npm run build:css && astro dev --host 127.0.0.1",
     "build": "npm run build:css && astro build",
-    "preview": "astro preview"
+    "preview": "astro preview --host 127.0.0.1"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.5.1",
